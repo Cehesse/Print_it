@@ -54,33 +54,29 @@ for (i = 0; i < nb_slides; i++) {
 } 
 
 //Modifier le carrousel
+function move_slide(direction){
+	bullets[currently_slide + direction].classList.add("dot_selected");
+	slide_img = slides[currently_slide + direction]["image"];
+	img.setAttribute("src", "./assets/images/slideshow/"+ slide_img)
+	tag.innerHTML = slides[currently_slide + direction]["tagLine"];
+	currently_slide= currently_slide + direction;
+}
 
 function slide_right(){
-
-	bullets[currently_slide].classList.remove("dot_selected");
+	
+ 	bullets[currently_slide].classList.remove("dot_selected");
 	if (currently_slide == nb_slides -1){
 		currently_slide = -1;
 	}
-
-	bullets[currently_slide + 1].classList.add("dot_selected");
-	slide_img = slides[currently_slide + 1]["image"];
-	img.setAttribute("src", "./assets/images/slideshow/"+ slide_img)
-	tag.innerHTML = slides[currently_slide + 1]["tagLine"];
-	currently_slide++;
+	move_slide(1);
 };
 
 function slide_left(){
-
 	bullets[currently_slide].classList.remove("dot_selected");
 	if (currently_slide == 0){
 		currently_slide = nb_slides;
 	}
-
-	bullets[currently_slide - 1].classList.add("dot_selected");
-	slide_img = slides[currently_slide - 1]["image"];
-	img.setAttribute("src", "./assets/images/slideshow/"+ slide_img)
-	tag.innerHTML = slides[currently_slide-1]["tagLine"];
-	currently_slide--;
+	move_slide(-1);
 };
 
 
