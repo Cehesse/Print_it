@@ -1,19 +1,9 @@
 //Ecouter les évenements des flèches
-
-//Avec les class
-/* let table_arrow_left = document.getElementsByClassName("arrow_left");
-let arrow_left = table_arrow_left[0];
-let table_arrow_right = document.getElementsByClassName("arrow_right");
-let arrow_right = table_arrow_right[0]; */
-
-//Avec les ID
-/* const arrow_left = document.getElementById("arrow_left");
-const arrow_right = document.getElementById("arrow_right"); */
-
-//Avec le query
 const arrow_left = document.querySelector("#banner img.arrow_left");
 const arrow_right = document.querySelector("#banner img.arrow_right");
 
+arrow_right.addEventListener("mousedown", slide_right);
+arrow_left.addEventListener("mousedown", slide_left);  
 arrow_right.addEventListener("click", slide_right);
 arrow_left.addEventListener("click", slide_left);
 
@@ -54,6 +44,11 @@ for (i = 0; i < nb_slides; i++) {
 } 
 
 //Modifier le carrousel
+
+function bullet_color_reset(){
+	bullets[currently_slide].classList.remove("dot_selected");
+}
+
 function move_slide(direction){
 	bullets[currently_slide + direction].classList.add("dot_selected");
 	slide_img = slides[currently_slide + direction]["image"];
@@ -62,21 +57,24 @@ function move_slide(direction){
 	currently_slide= currently_slide + direction;
 }
 
-function slide_right(){
-	
- 	bullets[currently_slide].classList.remove("dot_selected");
-	if (currently_slide == nb_slides -1){
-		currently_slide = -1;
+function slide_right(event){
+	if (event.buttons == 1){
+		bullet_color_reset();
+		if (currently_slide == nb_slides -1){
+			currently_slide = -1;
+		}
+		move_slide(1);
 	}
-	move_slide(1);
 };
 
-function slide_left(){
-	bullets[currently_slide].classList.remove("dot_selected");
-	if (currently_slide == 0){
+function slide_left(event){
+	if (event.buttons === 1){
+		bullet_color_reset();
+		if (currently_slide == 0){
 		currently_slide = nb_slides;
+		}
+		move_slide(-1);
 	}
-	move_slide(-1);
 };
 
 
