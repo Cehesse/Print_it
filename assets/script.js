@@ -45,6 +45,7 @@ for (i = 0; i < nb_slides; i++) {
 
 //Modifier le carrousel
 
+
 function bullet_color_reset(){
 	bullets[currently_slide].classList.remove("dot_selected");
 }
