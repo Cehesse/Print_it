@@ -1,12 +1,3 @@
-//Ecouter les évenements des flèches
-const arrow_left = document.querySelector("#banner img.arrow_left");
-const arrow_right = document.querySelector("#banner img.arrow_right");
-
-arrow_right.addEventListener("mousedown", slide_right);
-arrow_left.addEventListener("mousedown", slide_left);  
-arrow_right.addEventListener("click", slide_right);
-arrow_left.addEventListener("click", slide_left);
-
 //Définir les éléments du carrousel
 const slides = [
 	{
@@ -41,8 +32,16 @@ for (i = 0; i < nb_slides; i++) {
 		bullet.classList.add("dot_selected");
 		} 
 	bullet_parent.appendChild(bullet);
-} 
+}
 
+//Ecouter les évenements des flèches
+const arrow_left = document.querySelector("#banner img.arrow_left");
+const arrow_right = document.querySelector("#banner img.arrow_right");
+
+arrow_right.addEventListener("mousedown", slide_right);
+arrow_left.addEventListener("mousedown", slide_left);  
+arrow_right.addEventListener("click", slide_right);
+arrow_left.addEventListener("click", slide_left);
 //Modifier le carrousel
 
 function bullet_color_reset(){
