@@ -45,7 +45,6 @@ for (i = 0; i < nb_slides; i++) {
 
 //Modifier le carrousel
 
-
 function bullet_color_reset(){
 	bullets[currently_slide].classList.remove("dot_selected");
 }
@@ -55,7 +54,7 @@ function move_slide(direction){
 	slide_img = slides[currently_slide + direction]["image"];
 	img.setAttribute("src", "./assets/images/slideshow/"+ slide_img)
 	tag.innerHTML = slides[currently_slide + direction]["tagLine"];
-	currently_slide= currently_slide + direction;
+	currently_slide += direction;
 }
 
 function slide_right(event){
@@ -69,7 +68,7 @@ function slide_right(event){
 };
 
 function slide_left(event){
-	if (event.buttons === 1){
+	if (event.buttons == 1){
 		bullet_color_reset();
 		if (currently_slide == 0){
 		currently_slide = nb_slides;
