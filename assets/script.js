@@ -1,5 +1,4 @@
 //Définir les éléments du carrousel
-
 const slides = [
 	{
 		"image":"slide1.jpg",
@@ -33,7 +32,7 @@ for (i = 0; i < nb_slides; i++) {
 		bullet.classList.add("dot_selected");
 		} 
 	bullet_parent.appendChild(bullet);
-}
+};
 
 //Ecouter les évenements des flèches
 
@@ -49,15 +48,15 @@ arrow_left.addEventListener("click", slide_left);
 
 function bullet_color_reset(){
 	bullets[currently_slide].classList.remove("dot_selected");
-}
+};
 
 function move_slide(direction){
 	bullets[currently_slide + direction].classList.add("dot_selected");
 	slide_img = slides[currently_slide + direction]["image"];
-	img.setAttribute("src", "./assets/images/slideshow/"+ slide_img)
+	img.setAttribute("src", "./assets/images/slideshow/"+ slide_img);
 	tag.innerHTML = slides[currently_slide + direction]["tagLine"];
 	currently_slide += direction;
-}
+};
 
 function slide_right(event){
 	if (event.buttons == 1){
